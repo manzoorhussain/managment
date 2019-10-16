@@ -10,6 +10,8 @@ public class ManagmentApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ManagmentApplication.class, args);
+
+		System.out.print("HELLO TESTING");
 	}
 
 }
