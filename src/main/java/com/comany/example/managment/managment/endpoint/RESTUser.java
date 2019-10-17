@@ -17,7 +17,7 @@ import java.util.Map;
  * Created by zam zam on 10/12/2019.
  */
 
-@RestController
+@RestController @CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/user")
 public class RESTUser {
 
@@ -25,8 +25,7 @@ public class RESTUser {
     private UserBusniess userBusniess;
 
 
-    @RequestMapping(path = "/get",
-            produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping(path = "/get", produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<Object> getUser() {
 
         WsResponse wsResponse = userBusniess.getUsers();
