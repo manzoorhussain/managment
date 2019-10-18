@@ -1,5 +1,6 @@
 package com.comany.example.managment.managment.endpoint;
 
+import com.comany.example.managment.managment.bean.UserBean;
 import com.comany.example.managment.managment.bean.WsResponse;
 import com.comany.example.managment.managment.business.UserBusniess;
 import com.comany.example.managment.managment.utilities.ApplicationConstraints;
@@ -36,20 +37,21 @@ public class RESTUser {
 
     @PostMapping(path = "/add",
             produces = {MediaType.APPLICATION_JSON_VALUE},
-            consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE}
+            consumes = {MediaType.APPLICATION_JSON_VALUE}
     )
-    public ResponseEntity<Object> createUser(@RequestBody MultiValueMap<String,String> paramMap) {
+    //public ResponseEntity<Object> createUser(@RequestBody MultiValueMap<String,String> paramMap) {
+    public ResponseEntity<Object> createUser(@RequestBody UserBean user) {
 
 
 
 
         Map<String,String> map=new HashMap<>();
-        //map.put("usercode",paramMap.get("usercode").get(0));
-        map.put("loginid",paramMap.get("loginid").get(0));
-        map.put("firstname",paramMap.get("firstname").get(0));
-        map.put("middlename",paramMap.get("middlename").get(0));
-        map.put("lastname",paramMap.get("lastname").get(0));
-        map.put("address",paramMap.get("address").get(0));
+
+        map.put("loginid",user.getLoginId());
+        map.put("firstname",user.getFirstName());
+        map.put("middlename",user.getMiddleName());
+        map.put("lastname",user.getLastName());
+        map.put("address",user.getAddress());
 
 
 
